@@ -33,6 +33,7 @@ class DeleteTableFromDb extends Migration
 
             $table->timestamps();
 
+            
             $table->softDeletes();
         });
     }
