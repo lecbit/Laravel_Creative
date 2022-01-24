@@ -16,4 +16,32 @@ class PostController extends Controller
         // }
         dd("end");
     }
+
+    public function create()
+    {
+        $postsArr = [
+            [
+
+                'title' => 'title of post IDE',
+                'content' => 'content of post IDE',
+                'image' => 'imgIDE.png',
+                'likes' => 20,
+                'is_published' => 1,
+            ],
+            [
+                'title' => 'another title of post IDE',
+                'content' => 'another content of post IDE',
+                'image' => 'anotherimgIDE.png',
+                'likes' => 20,
+                'is_published' => 1
+            ],
+        ];
+        
+        foreach($postsArr as $item)
+        {
+            POST::create($item);
+        }
+
+        dd("created");
+    }
 }
