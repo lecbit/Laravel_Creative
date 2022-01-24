@@ -36,12 +36,21 @@ class PostController extends Controller
                 'is_published' => 1
             ],
         ];
-        
-        foreach($postsArr as $item)
-        {
+
+        foreach ($postsArr as $item) {
             POST::create($item);
         }
 
         dd("created");
+    }
+
+    public function update()
+    {
+        $post = Post::find(6);
+        $post->update([
+            'title' => 'updated2',
+            'content' => 'updated2',
+        ]);
+        dd("updated");
     }
 }
