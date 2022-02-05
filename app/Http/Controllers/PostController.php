@@ -17,7 +17,8 @@ class PostController extends Controller
         // $post = Post::find(1);
         // dd($category->posts);
 
-        $posts = Post::all();
+        $post = Post::find(3);
+        dd($post->tags);
         return view('posts.index', compact('posts'));
     }
 
