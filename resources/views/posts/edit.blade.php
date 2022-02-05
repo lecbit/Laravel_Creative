@@ -27,9 +27,12 @@
     </div>
     <div class="mb-3">
         <label for="tags" class="form-label">Tags</label>
-        <select class="form-select" multiple aria-label="multiple select example">
+        <select name="tags[]" class="form-select" multiple aria-label="multiple select example">
             @foreach($tags as $tag)
-            <option value="{{$tag->id}}">{{$tag->title}}</option>
+            <option 
+            @foreach($post->tag as $postTag) 
+            {{$tag->id === $postTag->id? 'selected' : ''}} 
+            @endforeach value="{{$tag->id}}">{{$tag->title}}</option>
             @endforeach
         </select>
     </div>

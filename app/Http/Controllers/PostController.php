@@ -74,10 +74,16 @@ class PostController extends Controller
             'title' => '',
             'content' => '',
             'image' => '',
-            'category_id' => ''
+            'category_id' => '',
+            'tags' => ''
+
         ]);
 
+        $tags = $data['tags'];
+        unset($data['tags']);
+
         $post->update($data);
+        $post->tag()->sync($tags);
 
         return redirect()->route('posts.show', $post->id);
     }
