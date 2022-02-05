@@ -20,10 +20,16 @@
         <label for="category" class="form-label">Category</label>
         <select id="category" name="category_id" class="form-select" aria-label="Default select example">
             @foreach($categories as $category)
-            <option
-            {{$category->id === $post->category->id? 'selected' : ''}}
-            value="{{$category->id}}"> {{$category->title}}
+            <option {{$category->id === $post->category->id? 'selected' : ''}} value="{{$category->id}}"> {{$category->title}}
             </option>
+            @endforeach
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="tags" class="form-label">Tags</label>
+        <select class="form-select" multiple aria-label="multiple select example">
+            @foreach($tags as $tag)
+            <option value="{{$tag->id}}">{{$tag->title}}</option>
             @endforeach
         </select>
     </div>
