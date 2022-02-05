@@ -12,21 +12,18 @@ class PostController extends Controller
 {
     public function index()
     {
-        // $post = Post::find(4);
-        $tag=Tag::find(1);
-        dd($tag->post);
-
         // $category = Category::find(2);
         // $post = Post::find(1);
         // dd($category->posts);
 
-        // $posts = Post::all();
-        // return view('posts.index', compact('posts'));
+        $posts = Post::all();
+        return view('posts.index', compact('posts'));
     }
 
     public function create()
     {
-        return View('posts.create');
+        $categories = Category::all();
+        return View('posts.create', compact('categories'));
     }
 
     public function store()
@@ -34,7 +31,8 @@ class PostController extends Controller
         $data = request()->validate([
             'title' => '',
             'content' => '',
-            'image' => ''
+            'image' => '',
+            'category_id' => ''
         ]);
         Post::create($data);
         return redirect()->route('posts.index');
@@ -47,7 +45,8 @@ class PostController extends Controller
 
     public function edit(Post $post)
     {
-        return view('posts.edit', compact('post'));
+        $categories = Category::all();
+        return view('posts.edit', compact('post', 'categories'));
     }
 
     public function update(Post $post)
@@ -55,7 +54,8 @@ class PostController extends Controller
         $data = request()->validate([
             'title' => '',
             'content' => '',
-            'image' => ''
+            'image' => '',
+            'category_id' => ''
         ]);
 
         $post->update($data);
