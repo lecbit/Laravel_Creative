@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Post;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UpdateRequest;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\PostTag;
@@ -12,16 +13,9 @@ use Illuminate\Http\Request;
 
 class UpdateController extends Controller
 {
-    public function __invoke(Post $post)
+    public function __invoke(UpdateRequest $request ,Post $post)
     {
-        $data = request()->validate([
-            'title' => '',
-            'content' => '',
-            'image' => '',
-            'category_id' => '',
-            'tags' => ''
-
-        ]);
+        $data = $request->validated();
 
         $tags = $data['tags'];
         unset($data['tags']);
