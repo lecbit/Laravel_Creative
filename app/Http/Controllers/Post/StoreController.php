@@ -11,24 +11,13 @@ use App\Models\Tag;
 use Doctrine\DBAL\Schema\View;
 use Illuminate\Http\Request;
 
-class StoreController extends Controller
+class StoreController extends BaseController
 {
     public function __invoke(StoreRequest $request)
     {
         $data = $request->validated();
 
-        $tags = $data['tags'];
-        unset($data['tags']);
-
-        $post = Post::create($data);
-        $post->tags()->attach($tags);
-        // foreach($tags as $tag)
-        // {
-        //     PostTag::firstOrCreate([
-        //         'tag_id' => $tag,
-        //         'post_id' => $post->id
-        //     ]);
-        // }
+        $this->service->store($data);
 
         return redirect()->route('posts.index');
     }
