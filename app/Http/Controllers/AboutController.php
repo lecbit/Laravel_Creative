@@ -9,6 +9,7 @@ class AboutController extends Controller
 {
     public function index()
     {
+        lplp
         return view('about');
     }
 }
