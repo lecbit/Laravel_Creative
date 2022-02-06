@@ -10,7 +10,7 @@ use App\Models\Tag;
 use Doctrine\DBAL\Schema\View;
 use Illuminate\Http\Request;
 
-class DestroyController extends Controller
+class DestroyController extends BaseController
 {
     public function __invoke(Post $post)
     {
