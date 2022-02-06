@@ -19,7 +19,7 @@ class UpdateController extends BaseController
 
         $this->service->update($post, $data);
 
-        
+        lplplpl
 
         return redirect()->route('posts.show', $post->id);
     }
