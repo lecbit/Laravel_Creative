@@ -16,7 +16,7 @@ class UpdateController extends Controller
     public function __invoke(UpdateRequest $request ,Post $post)
     {
         $data = $request->validated();
-
+rhrhrh
         $tags = $data['tags'];
         unset($data['tags']);
 
