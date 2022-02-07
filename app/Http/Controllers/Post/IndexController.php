@@ -14,11 +14,7 @@ class IndexController extends BaseController
 {
     public function __invoke()
     {
-        // $category = Category::find(2);
-        // $post = Post::find(1);
-        // dd($category->posts);
-
-        $posts = Post::all();
+        $posts = Post::paginate(5);
         return view('posts.index', compact('posts'));
     }
 }
