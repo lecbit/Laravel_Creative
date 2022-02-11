@@ -46,3 +46,8 @@ Route::get('/posts/update_or_create', "PostController@updateOrCreate");
 Route::get('/about', 'AboutController@index')->name('about.index');
 Route::get('/main', 'MainController@index')->name('main.index');
 Route::get('/contacts', 'ContactsController@index')->name('contacts.index');
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
