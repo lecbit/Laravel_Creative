@@ -36,6 +36,13 @@ Route::group(['namespace' => 'Admin', 'prefix' => '/admin', 'middleware' => 'adm
 });
 
 
+Route::group(['namespace' => 'Admin', 'prefix' => '/admin', 'middleware' => 'admin'], function () {
+    Route::group(['namespace' => 'Post'], function () {
+        Route::get('/post', 'IndexController')->name('admin.post.index');
+    });
+});
+
+
 Route::get('/posts/update', "PostController@update");
 Route::get('/posts/delete', "PostController@delete");
 
